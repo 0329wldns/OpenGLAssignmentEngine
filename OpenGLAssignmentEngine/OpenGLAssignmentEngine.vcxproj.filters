@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\Managers">
+      <UniqueIdentifier>{7ecc60a3-9e62-483a-b5a5-28b78a06d9d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Scenes">
+      <UniqueIdentifier>{92c67820-6e2b-4433-87dc-99d2d4586998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Objects">
+      <UniqueIdentifier>{f90982cc-f812-4dda-bd57-9d79e9646c8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Componants">
+      <UniqueIdentifier>{39ca66e7-7f52-460a-8e77-31b02e4deeb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Managers">
+      <UniqueIdentifier>{560f1cb0-b34d-42c7-8227-0ab73aa4c2c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Scenes">
+      <UniqueIdentifier>{da05762c-c788-4bd5-8acf-b3cc6dfae5bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Componants">
+      <UniqueIdentifier>{a9155f16-4116-45ef-9ac2-ddb0a4909eed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Objects">
+      <UniqueIdentifier>{2743b794-57f3-45ea-bdd2-21cf22dc3111}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>소스 파일\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>소스 파일\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="EventFunc.cpp">
+      <Filter>소스 파일\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>소스 파일\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Start.cpp">
+      <Filter>소스 파일\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>소스 파일\Componants</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>소스 파일\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="UIButton.cpp">
+      <Filter>소스 파일\Objects</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>헤더 파일\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>헤더 파일\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>헤더 파일\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>헤더 파일\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Start.h">
+      <Filter>헤더 파일\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>헤더 파일\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="EventFunc.h">
+      <Filter>헤더 파일\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>헤더 파일\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>헤더 파일\Componants</Filter>
+    </ClInclude>
+    <ClInclude Include="UIButton.h">
+      <Filter>헤더 파일\Objects</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

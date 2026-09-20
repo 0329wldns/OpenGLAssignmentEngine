@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="OpenGLAssignmentEngine/OpenGLAssignmentEngine.vcxproj" Id="d9916c48-4ae3-4336-b950-f363b1460ced" />
+</Solution>
