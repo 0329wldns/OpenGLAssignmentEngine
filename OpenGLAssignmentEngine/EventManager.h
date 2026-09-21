@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "pch.h"
 #include "Singleton.h"
 
@@ -15,7 +15,7 @@ struct Event
 {
     EVENT_TYPE event{};
     void* lParam{};
-    int wParam{};   // ±×·ì Å¸ÀÔ µîÀº int·Î Ã³¸®
+    int wParam{};   // ê·¸ë£¹ íƒ€ì… ë“±ì€ intë¡œ ì²˜ë¦¬
 };
 
 class EventManager : public Singleton<EventManager>
@@ -29,7 +29,7 @@ public:
 
 private:
     EventManager() = default;
-    ~EventManager(); // Áö¿¬ »èÁ¦µÈ °´Ã¼µéÀÇ ÃÖÁ¾ ¸Ş¸ğ¸® ÇØÁ¦ º¸Àå
+    ~EventManager(); // ì§€ì—° ì‚­ì œëœ ê°ì²´ë“¤ì˜ ìµœì¢… ë©”ëª¨ë¦¬ í•´ì œ ë³´ì¥
 
 private:
     vector<Event> vecEvent;

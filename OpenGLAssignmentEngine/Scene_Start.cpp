@@ -1,52 +1,30 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Scene_Start.h"
 #include "UIButton.h"
 
 #include "Core.h"
 #include "EventFunc.h"
 
-Scene_Start::Scene_Start()
-{
-}
-
-void Scene_Start::drawBG() const
-{
-	
-}
-
 void Scene_Start::enter()
 {
-    // === 1¹ø °úÁ¦ ½ÃÀÛ ¹öÆ° ¸¸µé±â ===
-    UIButton* btn1 = new UIButton();
-    btn1->setPos(0.0f, 0.0f);   // À©µµ¿ì Áß¾Ó À§ÂÊ (800x600 ±âÁØ)
-    btn1->setScale(0.5f, 0.5f);  // °¡·Î 200, ¼¼·Î 80 Å©±âÀÇ ³×¸ð
-    btn1->setColor(1.0f, 0.5f, 0.0f); // ÁÖÈ²»ö
+	int buttonPresetX{ SCREEN_WIDTH / 2 };
+	int buttonPresetY{ SCREEN_HEIGHT / 2};
 
+	// === 1ë²ˆ ê³¼ì œ ì‹œìž‘ ë²„íŠ¼ ë§Œë“¤ê¸° ===
+	UIButton* btn1 = new UIButton();
+	btn1->setPos(buttonPresetX, buttonPresetY);
+	btn1->setScale(200, 80);  // ê°€ë¡œ 200, ì„¸ë¡œ 80 í¬ê¸°ì˜ ë„¤ëª¨
+	btn1->setColor(1.0f, 0.5f, 0.0f); // ì£¼í™©ìƒ‰
 
-    // ÀÌ ¹öÆ°À» ´©¸£¸é ASSIGNMENT4 ¾ÀÀ¸·Î ³Ñ¾î°¡°Ô ¼³Á¤
-    btn1->setTargetScene(SCENE_TYPE::ASSIGNMENT4);
+	btn1->setTargetScene(SCENE_TYPE::ASSIGNMENT3);
 
-    // ¾ÀÀÇ UI ±×·ì¿¡ ¹öÆ° °´Ã¼ Ãß°¡
-    addObject(btn1, OBJECT_GROUP::DEFAULT);
+	// ì”¬ì˜ UI ê·¸ë£¹ì— ë²„íŠ¼ ê°ì²´ ì¶”ê°€
+	addObject(btn1, OBJECT_GROUP::UIButton);
 
-
-    // === 2¹ø °úÁ¦ ½ÃÀÛ ¹öÆ° ¸¸µé±â (¼±ÅÃ»çÇ×) ===
-    UIButton* btn2 = new UIButton();
-    btn2->setPos(400.0f, 350.0f);   // 1¹ø ¹öÆ° ¾Æ·¡ÂÊ
-    btn2->setScale(100.0f, 40.0f);
-    btn2->setColor(0.0f, 0.5f, 1.0f); // ÆÄ¶õ»ö
-
-    // ¸¸¾à ³ªÁß¿¡ SCENE_TYPE::ASSIGNMENT_2 °°Àº °É ¸¸µé¸é ¿©±â ¿¬°á
-    // btn2->setTargetScene(SCENE_TYPE::ASSIGNMENT_2); 
-
-    addObject(btn2, OBJECT_GROUP::DEFAULT);
-
-    // Âü°í: ÅØ½ºÆ®(±ÛÀÚ)¸¦ È­¸é¿¡ ±×¸®´Â °Ç OpenGL¿¡¼­ Á¶±Ý º¹ÀâÇÑ ÀÛ¾÷ÀÔ´Ï´Ù.
-    // ÀÏ´Ü ÄÜ¼ÖÃ¢(°ËÀºÃ¢)¿¡ ¾È³» ¹®±¸¸¦ ¶ç¿öÁÖ´Â °ÍÀ¸·Î ´ëÃ¼ÇÏ¸é ÆíÇÕ´Ï´Ù!
-    cout << "================================\n";
-    cout << "À§ÂÊ ÁÖÈ² ¹öÆ°: 1¹ø ½Ç½À °úÁ¦\n";
-    cout << "¾Æ·¡ ÆÄ¶û ¹öÆ°: 2¹ø ½Ç½À °úÁ¦\n";
-    cout << "================================\n";
+	cout << "================================\n";
+	cout << "ìœ„ìª½ ì£¼í™© ë²„íŠ¼: 1ë²ˆ ì‹¤ìŠµ ê³¼ì œ\n";
+	cout << "ì•„ëž˜ íŒŒëž‘ ë²„íŠ¼: 2ë²ˆ ì‹¤ìŠµ ê³¼ì œ\n";
+	cout << "================================\n";
 }
 
 void Scene_Start::exit()

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "pch.h"
 
 #include "Object.h"
@@ -6,8 +6,8 @@
 class Scene
 {
 public:
-	Scene();
-	~Scene();
+	Scene() = default;
+	~Scene() = default;
 
 	virtual void update();
 	void finalUpdate();
@@ -17,8 +17,8 @@ public:
 	virtual void drawUI() const = 0;
 	virtual void drawClear() const {};
 
-	virtual void enter() = 0;	// ¾À ÁøÀÔ
-	virtual void exit() = 0;	// ¾À Å»Ãâ
+	virtual void enter() = 0;	// ì”¬ ì§„ìž…
+	virtual void exit() = 0;	// ì”¬ íƒˆì¶œ
 
 	void reset();
 

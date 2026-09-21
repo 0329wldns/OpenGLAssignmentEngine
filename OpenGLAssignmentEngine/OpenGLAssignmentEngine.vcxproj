@@ -113,6 +113,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,6 +143,9 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Scene_Assignment3.cpp" />
+    <ClCompile Include="Scene_Assignment4.cpp" />
+    <ClCompile Include="Scene_Assignment4.h" />
     <ClCompile Include="UIButton.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -156,6 +160,7 @@
     <ClCompile Include="Scene_Start.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Scene_Assignment3.h" />
     <ClInclude Include="UIButton.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionManager.h" />

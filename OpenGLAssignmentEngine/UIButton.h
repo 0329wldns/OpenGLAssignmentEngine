@@ -1,6 +1,5 @@
-#pragma once
+﻿#pragma once
 #include "Object.h"
-#include "EventFunc.h" // 씬 변경(changeScene) 이벤트를 쓰기 위해 포함
 
 class UIButton : public Object
 {

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "pch.h"
 #include "Singleton.h"
 #include "Scene.h"
@@ -13,6 +13,8 @@ public:
 	void update();
 	void finalUpdate();
 	void render() const;
+
+	void changeScene(SCENE_TYPE nextScene);
 
 	Scene* getCurScene() const { return curScene; }
 	void setCurScene(Scene* _curScene) { curScene = _curScene; }

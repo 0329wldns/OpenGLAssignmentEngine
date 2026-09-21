@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "CollisionManager.h"
 
 void CollisionManager::update()
@@ -54,10 +54,10 @@ void CollisionManager::collisionGroupUpdate(OBJECT_GROUP left, OBJECT_GROUP righ
 				iter = collisionInfo.find(id.id);
 			}
 
-			// Ãæµ¹
+			// ì¶©ëŒ
 			if (isCollision(leftCol, rightCol))
 			{
-				// ÀÌÀü¿¡µµ Ãæµ¹ÀÌ ÀÖ¾ú´Ù
+				// ì´ì „ì—ë„ ì¶©ëŒì´ ìžˆì—ˆë‹¤
 				if (iter->second)
 				{
 					if (leftCol->getObj()->isDead() || rightCol->getObj()->isDead())
@@ -72,7 +72,7 @@ void CollisionManager::collisionGroupUpdate(OBJECT_GROUP left, OBJECT_GROUP righ
 						rightCol->onCollision(leftCol);
 					}
 				}
-				// ÀÌÀü¿¡´Â Ãæµ¹ÀÌ ¾ø¾ú´Ù
+				// ì´ì „ì—ëŠ” ì¶©ëŒì´ ì—†ì—ˆë‹¤
 				else
 				{
 					if (!leftCol->getObj()->isDead() && !rightCol->getObj()->isDead())
@@ -85,7 +85,7 @@ void CollisionManager::collisionGroupUpdate(OBJECT_GROUP left, OBJECT_GROUP righ
 			}
 			else
 			{
-				// ÀÌÀü¿¡´Â Ãæµ¹ÀÌ ÀÖ¾ú´Ù
+				// ì´ì „ì—ëŠ” ì¶©ëŒì´ ìžˆì—ˆë‹¤
 				if (iter->second)
 				{
 					leftCol->onCollisionExit(rightCol);

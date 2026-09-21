@@ -3,11 +3,13 @@
 
 #include "Scene.h"
 
-class Scene_Start : public Scene
+class Scene_Assignment3 : public Scene
 {
 public:
-	Scene_Start() = default;
-	~Scene_Start() = default;
+	Scene_Assignment3() = default;
+	~Scene_Assignment3() = default;
+
+	void update() override;
 
 	void drawBG() const override {};
 	void drawUI() const override {};

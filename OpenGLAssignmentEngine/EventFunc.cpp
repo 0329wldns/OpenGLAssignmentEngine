@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "EventFunc.h"
 #include "EventManager.h"
 
@@ -6,8 +6,8 @@ void createObject(Object* newObject, OBJECT_GROUP group)
 {
     Event event{};
     event.event = EVENT_TYPE::CREATE_OBJECT;
-    event.lParam = static_cast<void*>(newObject); // Æ÷ÀÎÅÍ´Â void* ·Î ³Ñ±è
-    event.wParam = static_cast<int>(group);       // ±×·ì(Enum)Àº int·Î ³Ñ±è
+    event.lParam = static_cast<void*>(newObject); // í¬ì¸í„°ëŠ” void* ë¡œ ë„˜ê¹€
+    event.wParam = static_cast<int>(group);       // ê·¸ë£¹(Enum)ì€ intë¡œ ë„˜ê¹€
     EventManager::getInstance().addEvent(event);
 }
 
@@ -23,7 +23,7 @@ void changeScene(SCENE_TYPE nextScene)
 {
     Event event{};
     event.event = EVENT_TYPE::SCENE_CHANGE;
-    event.lParam = static_cast<void*>(nullptr); // ¾À ÀüÈ¯ ·ÎÁ÷¿¡ ¸Â°Ô Á¶Á¤ ÇÊ¿ä
-    // event.wParam = static_cast<int>(dif);
+    event.lParam = static_cast<void*>(nullptr); // ì”¬ ì „í™˜ ë¡œì§ì— ë§ê²Œ ì¡°ì • í•„ìš”
+    event.wParam = static_cast<int>(nextScene);
     EventManager::getInstance().addEvent(event);
 }

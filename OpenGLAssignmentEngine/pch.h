@@ -1,23 +1,24 @@
-#pragma once
-
+Ôªø#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
 #include <map>
 #include <random>
+#include <windows.h>
 
-// OpenGL ∞¸∑√ ∂Û¿Ã∫Í∑Ø∏Æ (GLEW∞° GLFW∫∏¥Ÿ ∏’¿˙ include µ«æÓæﬂ «‘)
+// OpenGL Í¥ÄÎ†® ÎùºÏù¥Î∏åÎü¨Î¶¨ (GLEWÍ∞Ä GLFWÎ≥¥Îã§ Î®ºÏ†Ä include ÎêòÏñ¥Ïïº Ìï®)
 #include <GL/glew.h>
 #include <GL/glfw3.h>
 
 using namespace std;
 
-const int SCREEN_WIDTH = 1600;
-const int SCREEN_HEIGHT = 1200;
+inline const int SCREEN_WIDTH = 1600;
+inline const int SCREEN_HEIGHT = 1200;
 
 enum class SCENE_TYPE
 {
 	START,
+	ASSIGNMENT3,
 	ASSIGNMENT4,
 
 	END
@@ -26,7 +27,7 @@ enum class SCENE_TYPE
 enum class OBJECT_GROUP
 {
 	DEFAULT,
-	PLAYER,
+	UIButton,
 
 	END
 };

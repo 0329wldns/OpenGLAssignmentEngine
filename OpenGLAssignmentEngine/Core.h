@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "pch.h"
 #include "Singleton.h"
 
@@ -10,7 +10,7 @@ public:
     int init();
     void progress();
 
-    // ¸ŞÀÎ ·çÇÁ ½ÇÇà Á¶°Ç (ESC ´©¸£°Å³ª X ¹öÆ° Å¬¸¯ ½Ã Á¾·á)
+    // ë©”ì¸ ë£¨í”„ ì‹¤í–‰ ì¡°ê±´ (ESC ëˆ„ë¥´ê±°ë‚˜ X ë²„íŠ¼ í´ë¦­ ì‹œ ì¢…ë£Œ)
     bool isRunning() const;
     GLFWwindow* getWindow() const { return window; }
 

@@ -1,4 +1,4 @@
-#include "pch.h"
+Ôªø#include "pch.h"
 #include "Core.h"
 #include "KeyManager.h"
 #include "SceneManager.h"
@@ -7,74 +7,85 @@
 
 Core::~Core()
 {
-    if (window)
-    {
-        glfwDestroyWindow(window);
-    }
-    glfwTerminate();
+	if (window)
+	{
+		glfwDestroyWindow(window);
+	}
+	glfwTerminate();
 }
 
 int Core::init()
 {
-    // GLFW √ ±‚»≠[cite: 13]
-    if (!glfwInit())
-    {
-        cerr << "GLFW √ ±‚»≠ Ω«∆–!\n";
-        return -1;
-    }
+	// GLFW Ï¥àÍ∏∞Ìôî
+	if (!glfwInit())
+	{
+		cerr << "GLFW Ï¥àÍ∏∞Ìôî Ïã§Ìå®!\n";
+		return -1;
+	}
 
-    // OpenGL »£»Øº∫ «¡∑Œ∆ƒ¿œ º≥¡§ (glRectf, glColor3f ªÁøÎ ¿ß«‘)[cite: 13]
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
 
+	// ÏúàÎèÑÏö∞ ÏÉùÏÑ±
+	window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "OpenGL Game Engine", nullptr, nullptr);
+	if (!window)
+	{
+		cerr << "ÏúàÎèÑÏö∞ ÏÉùÏÑ± Ïã§Ìå®!\n";
+		glfwTerminate();
+		return -1;
+	}
 
-    // 1600x1200 ¿©µµøÏ ª˝º∫[cite: 13]
-    window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "OpenGL Game Engine", nullptr, nullptr);
-    if (!window)
-    {
-        cerr << "¿©µµøÏ ª˝º∫ Ω«∆–!\n";
-        glfwTerminate();
-        return -1;
-    }
+	glfwMakeContextCurrent(window);
 
-    glfwMakeContextCurrent(window);
+	// GLEW Ï¥àÍ∏∞Ìôî
+	glewExperimental = GL_TRUE;
+	if (glewInit() != GLEW_OK)
+	{
+		cerr << "GLEW Ï¥àÍ∏∞Ìôî Ïã§Ìå®!\n";
+		return -1;
+	}
 
-    // GLEW √ ±‚»≠[cite: 13]
-    glewExperimental = GL_TRUE;
-    if (glewInit() != GLEW_OK)
-    {
-        cerr << "GLEW √ ±‚»≠ Ω«∆–!\n";
-        return -1;
-    }
+	glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-    glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+	// Ïπ¥Î©îÎùº ÌñâÎ†¨(Ìà¨ÏòÅ) ÏÑ§Ï†ï Î™®ÎìúÎ°ú Î≥ÄÍ≤Ω
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
 
-    // ∞¢ ∏≈¥œ¿˙ √ ±‚»≠
-    KeyManager::getInstance().init();
-    SceneManager::getInstance().init();
+	glOrtho(0.0, (double)SCREEN_WIDTH, (double)SCREEN_HEIGHT, 0.0, -1.0, 1.0);
 
-    return 0;
+	// Îã§Ïãú Î™®Îç∏(Í∑∏Î¶¨Í∏∞) ÌñâÎ†¨ Î™®ÎìúÎ°ú Î≥µÍµ¨
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	// Í∞Å Îß§ÎãàÏ†Ä Ï¥àÍ∏∞Ìôî
+	KeyManager::getInstance().init();
+	SceneManager::getInstance().init();
+
+	// Î∞∞Í≤ΩÏÉâ ÏÑ§Ï†ï
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+
+	return 0;
 }
 
 void Core::progress()
 {
-    // ¿‘∑¬ ¿Ã∫•∆Æ ∆˙∏µ[cite: 13]
-    glfwPollEvents();
+	// ÏûÖÎ†• Ïù¥Î≤§Ìä∏ Ìè¥ÎßÅ
+	glfwPollEvents();
 
-    KeyManager::getInstance().update();
-    SceneManager::getInstance().update();
-    CollisionManager::getInstance().update();
+	KeyManager::getInstance().update();
+	SceneManager::getInstance().update();
+	
+	finalUpdate();
+	CollisionManager::getInstance().update();
+	render();
 
-    finalUpdate();
-    render();
-
-    EventManager::getInstance().update();
+	EventManager::getInstance().update();
 }
 
 bool Core::isRunning() const
 {
-    return !glfwWindowShouldClose(window);
+	return !glfwWindowShouldClose(window);
 }
 
 void Core::update()
@@ -83,17 +94,15 @@ void Core::update()
 
 void Core::finalUpdate()
 {
-    SceneManager::getInstance().finalUpdate();
+	SceneManager::getInstance().finalUpdate();
 }
 
 void Core::render()
 {
-    // √ ±‚ πË∞Êªˆ »Úªˆ º≥¡§ (Ω«Ω¿ 1 ø‰±∏ªÁ«◊)[cite: 13]
-    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 
-    SceneManager::getInstance().render();
+	SceneManager::getInstance().render();
 
-    // πˆ∆€ ±≥√º[cite: 13]
-    glfwSwapBuffers(window);
+	// Î≤ÑÌçº ÍµêÏ≤¥
+	glfwSwapBuffers(window);
 }

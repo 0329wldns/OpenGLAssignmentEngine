@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "pch.h"
 #include "Singleton.h"
 
@@ -13,7 +13,7 @@ union COLLIDER_ID {
 		unsigned int leftId;
 		unsigned int rightId;
 	};
-	uint64_t id; // ULONGLONG ´ë½Å C++ Ç¥ÁØ Å¸ÀÔ »ç¿ë
+	uint64_t id; // ULONGLONG ëŒ€ì‹  C++ í‘œì¤€ íƒ€ì… ì‚¬ìš©
 };
 
 class CollisionManager : public Singleton<CollisionManager>
@@ -32,6 +32,6 @@ private:
 	~CollisionManager() = default;
 
 private:
-	map<uint64_t, bool> collisionInfo;		// ÀÌÀü ÇÁ·¹ÀÓ Ãæµ¹ »óÅÂ¸¦ ÀúÀå
+	map<uint64_t, bool> collisionInfo;		// ì´ì „ í”„ë ˆì„ ì¶©ëŒ ìƒíƒœë¥¼ ì €ì¥
 	unsigned int arrCheck[(int)OBJECT_GROUP::END]{};
 };

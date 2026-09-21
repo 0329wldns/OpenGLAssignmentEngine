@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "collider.h"
 
 #include "KeyManager.h"
@@ -25,24 +25,24 @@ void Collider::finalUpdate()
 
 void Collider::render()
 {
-    // µğ¹ö±×¿ë Å×µÎ¸® Ãâ·ÂÀÌ ²¨Á®ÀÖÀ¸¸é ¹«½Ã
+    // ë””ë²„ê·¸ìš© í…Œë‘ë¦¬ ì¶œë ¥ì´ êº¼ì ¸ìˆìœ¼ë©´ ë¬´ì‹œ
     // if (!SceneManager::getInstance().getCurScene()->showBorder()) return;
 
     if (isCol)
     {
-        glColor3f(1.0f, 0.0f, 0.0f); // Ãæµ¹ ÁßÀÌ¸é »¡°£»ö
+        glColor3f(1.0f, 0.0f, 0.0f); // ì¶©ëŒ ì¤‘ì´ë©´ ë¹¨ê°„ìƒ‰
     }
     else
     {
-        glColor3f(1.0f, 1.0f, 0.0f); // Æò¼Ò¿£ ³ë¶õ»ö
+        glColor3f(1.0f, 1.0f, 0.0f); // í‰ì†Œì—” ë…¸ë€ìƒ‰
     }
 
-    // OpenGL·Î ¼ÓÀÌ ºó »ç°¢Çü ±×¸®±â (¼± ¿¬°á)
+    // OpenGLë¡œ ì†ì´ ë¹ˆ ì‚¬ê°í˜• ê·¸ë¦¬ê¸° (ì„  ì—°ê²°)
     glBegin(GL_LINE_LOOP);
-    glVertex2f(GLfloat(pos.x - scale.x), GLfloat(pos.y - scale.y)); // ÁÂÇÏ´Ü
-    glVertex2f(GLfloat(pos.x + scale.x), GLfloat(pos.y - scale.y)); // ¿ìÇÏ´Ü
-    glVertex2f(GLfloat(pos.x + scale.x), GLfloat(pos.y + scale.y)); // ¿ì»ó´Ü
-    glVertex2f(GLfloat(pos.x - scale.x), GLfloat(pos.y + scale.y)); // ÁÂ»ó´Ü
+    glVertex2f(GLfloat(pos.x - scale.x), GLfloat(pos.y - scale.y)); // ì¢Œí•˜ë‹¨
+    glVertex2f(GLfloat(pos.x + scale.x), GLfloat(pos.y - scale.y)); // ìš°í•˜ë‹¨
+    glVertex2f(GLfloat(pos.x + scale.x), GLfloat(pos.y + scale.y)); // ìš°ìƒë‹¨
+    glVertex2f(GLfloat(pos.x - scale.x), GLfloat(pos.y + scale.y)); // ì¢Œìƒë‹¨
     glEnd();
 }
 

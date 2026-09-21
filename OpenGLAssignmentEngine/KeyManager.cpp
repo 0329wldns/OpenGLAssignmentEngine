@@ -1,66 +1,66 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "KeyManager.h"
 #include "Core.h"
 
-// GLFW Å° ¸ÅÇÎ ¹è¿­
+// GLFW í‚¤ ë§¤í•‘ ë°°ì—´
 int arrVK[(int)KEY::LAST]
 {
-    GLFW_KEY_UP, GLFW_KEY_DOWN, GLFW_KEY_LEFT, GLFW_KEY_RIGHT,
-    GLFW_KEY_W, GLFW_KEY_A, GLFW_KEY_S, GLFW_KEY_D,
-    GLFW_MOUSE_BUTTON_LEFT, GLFW_MOUSE_BUTTON_RIGHT, // ¸¶¿ì½º
-    GLFW_KEY_C, GLFW_KEY_M, GLFW_KEY_Y, GLFW_KEY_G, GLFW_KEY_K, GLFW_KEY_T,
-    GLFW_KEY_1, GLFW_KEY_2, GLFW_KEY_3, GLFW_KEY_4,
-    GLFW_KEY_ESCAPE // ÇÁ·Î±×·¥ Á¾·á Å°
+	GLFW_KEY_UP, GLFW_KEY_DOWN, GLFW_KEY_LEFT, GLFW_KEY_RIGHT,
+	GLFW_KEY_W, GLFW_KEY_A, GLFW_KEY_S, GLFW_KEY_D,
+	GLFW_MOUSE_BUTTON_LEFT, GLFW_MOUSE_BUTTON_RIGHT, // ë§ˆìš°ìŠ¤
+	GLFW_KEY_C, GLFW_KEY_M, GLFW_KEY_Y, GLFW_KEY_G, GLFW_KEY_K, GLFW_KEY_T,
+	GLFW_KEY_1, GLFW_KEY_2, GLFW_KEY_3, GLFW_KEY_4,
+	GLFW_KEY_ESCAPE // í”„ë¡œê·¸ëž¨ ì¢…ë£Œ í‚¤
 };
 
 void KeyManager::init()
 {
-    for (int i{}; i < (int)KEY::LAST; ++i)
-    {
-        keyInfo.push_back(KeyInfo{ KEY_STATE::NONE, false });
-    }
+	for (int i{}; i < (int)KEY::LAST; ++i)
+	{
+		keyInfo.push_back(KeyInfo{ KEY_STATE::NONE, false });
+	}
 }
 
 void KeyManager::update()
 {
-    GLFWwindow* window{ Core::getInstance().getWindow() };
-    if (!window) return;
+	GLFWwindow* window{ Core::getInstance().getWindow() };
+	if (!window) return;
 
-    for (int i{}; i < (int)KEY::LAST; ++i)
-    {
-        bool isPressed{};
+	for (int i{}; i < (int)KEY::LAST; ++i)
+	{
+		bool isPressed{};
 
-        // ¸¶¿ì½º¿Í Å°º¸µå´Â GLFW °Ë»ç ÇÔ¼ö°¡ ¼­·Î ´Ù¸§
-        if (arrVK[i] == GLFW_MOUSE_BUTTON_LEFT || arrVK[i] == GLFW_MOUSE_BUTTON_RIGHT)
-        {
-            isPressed = (glfwGetMouseButton(window, arrVK[i]) == GLFW_PRESS);
-        }
-        else
-        {
-            isPressed = (glfwGetKey(window, arrVK[i]) == GLFW_PRESS);
-        }
+		// ë§ˆìš°ìŠ¤ì™€ í‚¤ë³´ë“œëŠ” GLFW ê²€ì‚¬ í•¨ìˆ˜ê°€ ì„œë¡œ ë‹¤ë¦„
+		if (arrVK[i] == GLFW_MOUSE_BUTTON_LEFT || arrVK[i] == GLFW_MOUSE_BUTTON_RIGHT)
+		{
+			isPressed = (glfwGetMouseButton(window, arrVK[i]) == GLFW_PRESS);
+		}
+		else
+		{
+			isPressed = (glfwGetKey(window, arrVK[i]) == GLFW_PRESS);
+		}
 
-        if (isPressed)
-        {
-            if (keyInfo[i].prevPush) keyInfo[i].keyState = KEY_STATE::HOLD;
-            else
-            {
-                keyInfo[i].keyState = KEY_STATE::TAP;
+		if (isPressed)
+		{
+			if (keyInfo[i].prevPush) keyInfo[i].keyState = KEY_STATE::HOLD;
+			else
+			{
+				keyInfo[i].keyState = KEY_STATE::TAP;
 
-				// cout << "Key Pressed: " << i << endl; // µð¹ö±ë¿ë Ãâ·Â
-            }
+				cout << "Key Pressed: " << i << endl;
+			}
 
-            keyInfo[i].prevPush = true;
-        }
-        else
-        {
-            if (keyInfo[i].prevPush) keyInfo[i].keyState = KEY_STATE::AWAY;
-            else keyInfo[i].keyState = KEY_STATE::NONE;
+			keyInfo[i].prevPush = true;
+		}
+		else
+		{
+			if (keyInfo[i].prevPush) keyInfo[i].keyState = KEY_STATE::AWAY;
+			else keyInfo[i].keyState = KEY_STATE::NONE;
 
-            keyInfo[i].prevPush = false;
-        }
-    }
+			keyInfo[i].prevPush = false;
+		}
+	}
 
-    // ¸¶¿ì½º ÁÂÇ¥ ¾÷µ¥ÀÌÆ®[cite: 13]
-    glfwGetCursorPos(window, &curMousePos.x, &curMousePos.y);
+	// ë§ˆìš°ìŠ¤ ì¢Œí‘œ ì—…ë°ì´íŠ¸[cite: 13]
+	glfwGetCursorPos(window, &curMousePos.x, &curMousePos.y);
 }

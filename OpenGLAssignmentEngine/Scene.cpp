@@ -1,25 +1,23 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Scene.h"
 #include "KeyManager.h"
 #include "Core.h"
-
-Scene::Scene()
-{
-
-}
-
-Scene::~Scene()
-{
-}
 
 void Scene::update()
 {
 	for (int i = 0; i < (int)OBJECT_GROUP::END; ++i)
 	{
-		for (size_t j = 0; j < object[i].size(); ++j)
-		{
-			if (!object[i][j]->isDead())
-				object[i][j]->update();
+		auto iter = object[i].begin();
+		for (; iter != object[i].end();) {
+			if (!(*iter)->isDead())
+			{
+				(*iter)->update();
+				++iter;
+			}
+			else
+			{
+				iter = object[i].erase(iter);
+			}
 		}
 	}
 }

@@ -1,26 +1,29 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Core.h"
 #include "KeyManager.h"
 
 int main()
 {
-    // 1. ¿£Áø ÃÊ±âÈ­
-    if (Core::getInstance().init() != 0)
-    {
-        return -1;
-    }
+	// c++ í‘œì¤€ ì…ì¶œë ¥ í•œêµ­ì–´ë¡œ ì„¤ì •
+	SetConsoleOutputCP(CP_UTF8);
 
-    // 2. ¸ŞÀÎ °ÔÀÓ ·çÇÁ[cite: 13]
-    while (Core::getInstance().isRunning())
-    {
-        Core::getInstance().progress();
+	// 1. ì—”ì§„ ì´ˆê¸°í™”
+	if (Core::getInstance().init() != 0)
+	{
+		return -1;
+	}
 
-        // ESC ´©¸£¸é ÇÁ·Î±×·¥ Á¾·á Ã³¸®[cite: 13]
-        if (KeyManager::getInstance().getKeyState(KEY::ESC) == KEY_STATE::TAP)
-        {
-            glfwSetWindowShouldClose(Core::getInstance().getWindow(), true);
-        }
-    }
+	// 2. ë©”ì¸ ê²Œì„ ë£¨í”„[cite: 13]
+	while (Core::getInstance().isRunning())
+	{
+		Core::getInstance().progress();
 
-    return 0;
+		// ESC ëˆ„ë¥´ë©´ í”„ë¡œê·¸ë¨ ì¢…ë£Œ ì²˜ë¦¬[cite: 13]
+		if (KeyManager::getInstance().getKeyState(KEY::ESC) == KEY_STATE::TAP)
+		{
+			// glfwSetWindowShouldClose(Core::getInstance().getWindow(), true);
+		}
+	}
+
+	return 0;
 }

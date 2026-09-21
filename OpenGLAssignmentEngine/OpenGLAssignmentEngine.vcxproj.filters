@@ -75,6 +75,15 @@
     <ClCompile Include="UIButton.cpp">
       <Filter>소스 파일\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Scene_Assignment4.h">
+      <Filter>헤더 파일\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Assignment4.cpp">
+      <Filter>소스 파일\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Assignment3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -118,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="UIButton.h">
       <Filter>헤더 파일\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Assignment3.h">
+      <Filter>헤더 파일\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

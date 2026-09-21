@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "pch.h"
 
 #include "Core.h"
@@ -13,9 +13,9 @@ public:
 	void finalUpdate();
 	void render();
 
-	void onCollision(Collider*);	// Ãæµ¹ ÁßÀÎ °æ¿ì È£Ãâ
-	void onCollisionEnter(Collider*);	// Ãæµ¹À» ½ÃÀÛ ÇÒ ¶§ È£Ãâ
-	void onCollisionExit(Collider*);	// Ãæµ¹À» ¹ş¾î³¯ ¶§ È£Ãâ
+	void onCollision(Collider*);	// ì¶©ëŒ ì¤‘ì¸ ê²½ìš° í˜¸ì¶œ
+	void onCollisionEnter(Collider*);	// ì¶©ëŒì„ ì‹œì‘ í•  ë•Œ í˜¸ì¶œ
+	void onCollisionExit(Collider*);	// ì¶©ëŒì„ ë²—ì–´ë‚  ë•Œ í˜¸ì¶œ
 
 	void setPos(Vector2 _pos) { pos = _pos; }
 	void setPos(float _posX, float _posY) { pos.x = _posX; pos.y = _posY; }
