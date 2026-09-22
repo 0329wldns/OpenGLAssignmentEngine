@@ -28,6 +28,7 @@ enum class OBJECT_GROUP
 {
 	DEFAULT,
 	UIButton,
+	Rect,
 
 	END
 };

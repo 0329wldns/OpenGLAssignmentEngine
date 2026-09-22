@@ -55,7 +55,8 @@ void Scene::reset()
 {
 	for (int i = 0; i < (int)OBJECT_GROUP::END; ++i)
 	{
-		for (size_t j = 0; j < object[i].size(); ++j) {
+		for (size_t j = 0; j < object[i].size(); ++j) 
+		{
 			delete object[i][j];
 		}
 		object[i].clear();

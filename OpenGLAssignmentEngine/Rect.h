@@ -13,6 +13,9 @@ public:
 
 	void onCollision(Collider*) override;
 
+	void setColor(float r, float g, float b) { color.r = r; color.g = g; color.b = b; }
+	void setColor(Color _color) { color = _color; }
+
 private:
 	Color color;
 
