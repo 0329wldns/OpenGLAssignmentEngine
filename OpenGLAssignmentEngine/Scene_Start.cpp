@@ -27,7 +27,7 @@ void Scene_Start::enter()
 	btn1->setTargetScene(SCENE_TYPE::ASSIGNMENT3);
 
 	// 씬의 UI 그룹에 버튼 객체 추가
-	addObject(btn1, OBJECT_GROUP::UIButton);
+	createObject(btn1, OBJECT_GROUP::UIBUTTON);
 
 	cout << "================================\n";
 	cout << "주황 버튼: 3번 실습 과제\n";

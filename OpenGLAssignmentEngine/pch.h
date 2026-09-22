@@ -27,8 +27,8 @@ enum class SCENE_TYPE
 enum class OBJECT_GROUP
 {
 	DEFAULT,
-	UIButton,
-	Rect,
+	UIBUTTON,
+	RECT,
 
 	END
 };

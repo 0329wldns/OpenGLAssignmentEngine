@@ -17,7 +17,6 @@ int main()
 	while (Core::getInstance().isRunning())
 	{
 		Core::getInstance().progress();
-
 	}
 
 	return 0;
