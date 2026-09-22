@@ -13,7 +13,7 @@ public:
 	virtual ~Object();
 
 	void createCollider();
-	void creaeteAnimator();
+	void creaeteAnimator() {};
 
 	virtual void update() = 0;
 	virtual void finalUpdate() final;

@@ -18,11 +18,6 @@ int main()
 	{
 		Core::getInstance().progress();
 
-		// ESC 누르면 프로그램 종료 처리[cite: 13]
-		if (KeyManager::getInstance().getKeyState(KEY::ESC) == KEY_STATE::TAP)
-		{
-			// glfwSetWindowShouldClose(Core::getInstance().getWindow(), true);
-		}
 	}
 
 	return 0;

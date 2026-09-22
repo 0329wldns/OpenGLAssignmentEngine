@@ -1,9 +1,17 @@
 ﻿#include "pch.h"
 #include "Scene_Start.h"
+#include "KeyManager.h"
 #include "UIButton.h"
-
-#include "Core.h"
 #include "EventFunc.h"
+
+void Scene_Start::update()
+{
+	// ESC 누르면 프로그램 종료 처리
+	if (KeyManager::getInstance().getKeyState(KEY::ESC) == KEY_STATE::TAP)
+		glfwSetWindowShouldClose(Core::getInstance().getWindow(), true);
+
+	Scene::update();
+}
 
 void Scene_Start::enter()
 {
@@ -22,8 +30,7 @@ void Scene_Start::enter()
 	addObject(btn1, OBJECT_GROUP::UIButton);
 
 	cout << "================================\n";
-	cout << "위쪽 주황 버튼: 1번 실습 과제\n";
-	cout << "아래 파랑 버튼: 2번 실습 과제\n";
+	cout << "주황 버튼: 3번 실습 과제\n";
 	cout << "================================\n";
 }
 

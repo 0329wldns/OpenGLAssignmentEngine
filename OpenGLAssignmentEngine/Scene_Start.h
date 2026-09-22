@@ -9,6 +9,8 @@ public:
 	Scene_Start() = default;
 	~Scene_Start() = default;
 
+	void update() override;
+
 	void drawBG() const override {};
 	void drawUI() const override {};
 

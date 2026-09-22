@@ -143,6 +143,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Scene_Assignment3.cpp" />
     <ClCompile Include="Scene_Assignment4.cpp" />
     <ClCompile Include="Scene_Assignment4.h" />
@@ -160,6 +161,7 @@
     <ClCompile Include="Scene_Start.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Rect.h" />
     <ClInclude Include="Scene_Assignment3.h" />
     <ClInclude Include="UIButton.h" />
     <ClInclude Include="Collider.h" />

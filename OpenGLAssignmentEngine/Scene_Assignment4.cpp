@@ -8,7 +8,6 @@ void Scene_Assignment4::update()
 	if (KeyManager::getInstance().getKeyState(KEY::ESC) == KEY_STATE::TAP)
 	{
 		changeScene(SCENE_TYPE::START);
-		cout << "Tap" << endl;
 	}
 
 	Scene::update();
