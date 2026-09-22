@@ -5,6 +5,9 @@ struct Vector2
 {
 	double x{};
 	double y{};
+
+	Vector2 operator+(const Vector2& rhs) { Vector2 temp{ x + rhs.x, y + rhs.y }; return temp; };
+	Vector2 operator-(const Vector2& rhs) { Vector2 temp{ x - rhs.x, y - rhs.y }; return temp; };
 };
 
 struct Color

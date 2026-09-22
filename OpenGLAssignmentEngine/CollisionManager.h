@@ -7,7 +7,8 @@
 #include "Object.h"
 #include "collider.h"
 
-union COLLIDER_ID {
+union COLLIDER_ID 
+{
 	struct 
 	{
 		unsigned int leftId;

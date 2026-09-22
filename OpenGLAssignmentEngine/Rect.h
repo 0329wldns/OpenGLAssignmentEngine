@@ -19,4 +19,6 @@ public:
 private:
 	Color color;
 
+	bool isHeld;
+	Vector2 dragOffset{};
 };

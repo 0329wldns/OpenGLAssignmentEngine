@@ -33,10 +33,7 @@ void UIButton::update()
 			changeScene(targetScene);
 		}
 	}
-	else
-	{
-		isHover = false; // 마우스가 벗어남
-	}
+	else isHover = false; // 마우스가 벗어남
 }
 
 void UIButton::render() const
