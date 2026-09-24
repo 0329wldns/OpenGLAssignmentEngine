@@ -12,6 +12,7 @@ public:
 
 	void onMouseDownLeft() override;
 	void onMouseUpLeft() override;
+	void onMouseDownRight() override;
 
 	void render() const override;
 

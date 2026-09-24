@@ -12,6 +12,11 @@
 
 using namespace std;
 
+inline random_device rd{};
+inline mt19937 gen(rd());
+inline uniform_int_distribution<int> intDist(1, 10000);
+inline uniform_real_distribution<float> realDist(0.0f, 1.0f);
+
 inline const int SCREEN_WIDTH = 1600;
 inline const int SCREEN_HEIGHT = 1200;
 

@@ -3,22 +3,17 @@
 #include "KeyManager.h"
 #include "EventFunc.h"
 #include "Rect.h"
-
-random_device rd{};
-mt19937 gen(rd());
-uniform_int_distribution<int> intDist(1, 10000);
-uniform_real_distribution<float> realDist(0.0f, 1.0f);
-
-static const int g_sizeLimit{ 100 };
-static int g_rectCnt{};
+#include "CollisionManager.h"
 
 void Scene_Assignment3::update()
 {
+	static const int g_sizeLimit{ 100 };
+
 	if (KeyManager::getInstance().getKeyState(KEY::ESC) == KEY_STATE::TAP)
 		changeScene(SCENE_TYPE::START);
 	if (KeyManager::getInstance().getKeyState(KEY::A) == KEY_STATE::TAP)
 	{
-		if (g_rectCnt < 10)
+		if (Scene::getGroupObject(OBJECT_GROUP::RECT).size() < 10)
 		{
 			Vector2 pos{ intDist(gen) % SCREEN_WIDTH, intDist(gen) % SCREEN_HEIGHT };
 			Vector2 scale{ 10 + intDist(gen) % g_sizeLimit, 10 + intDist(gen) % g_sizeLimit };
@@ -27,10 +22,10 @@ void Scene_Assignment3::update()
 			Rect* rect = new Rect();
 			rect->setPos(pos);
 			rect->setScale(scale);
-			rect->setColor(col);
+			rect->getCollider()->setPos(rect->getPos());
+			rect->getCollider()->setScale(rect->getScale());
 
 			createObject(rect, OBJECT_GROUP::RECT);
-			++g_rectCnt;
 		}
 		else cout << "더 이상 추가할 수 없음" << endl;
 	}
@@ -43,9 +38,12 @@ void Scene_Assignment3::update()
 void Scene_Assignment3::enter()
 {
 	cout << "과제3" << endl;
+
+	CollisionManager::getInstance().checkCollisionGroup(OBJECT_GROUP::RECT, OBJECT_GROUP::RECT);
 }
 
 void Scene_Assignment3::exit()
 {
+	CollisionManager::getInstance().reset();
 	reset();
 }
