@@ -5,8 +5,6 @@
 
 void Scene::update()
 {
-	processMouseInput();
-
 	for (int i =  0; i < (int)OBJECT_GROUP::END; ++i)
 	{
 		auto iter = object[i].begin();
@@ -24,6 +22,8 @@ void Scene::update()
 			}
 		}
 	}
+
+	processMouseInput();
 }
 
 void Scene::finalUpdate()
@@ -79,9 +79,9 @@ const void Scene::processMouseInput()
 
 	if (!focusedObject)	// 마우스 이벤트를 받고있는 객체가 없으면
 	{
-		for (int i = 0; i < (int)OBJECT_GROUP::END; ++i)
+		for (int i = (int)OBJECT_GROUP::END - 1; i >= 0; --i)
 		{
-			for (size_t j = 0; j < object[i].size(); ++j)
+			for (int j = object[i].size() - 1; j >= 0; --j)
 			{
 				Vector2 myPos{ object[i][j]->getPos() };
 				Vector2 myScale{ object[i][j]->getScale() };
@@ -132,6 +132,17 @@ const void Scene::processMouseInput()
 		else
 		{
 			focusedObject->onMouseLeave();
+			focusedObject = nullptr;
+		}
+
+		if (KeyManager::getInstance().getKeyState(KEY::MOUSE_L) == KEY_STATE::AWAY)	//	마우스 좌클릭
+		{
+			focusedObject->onMouseUpLeft();
+			focusedObject = nullptr;
+		}
+		else if (KeyManager::getInstance().getKeyState(KEY::MOUSE_R) == KEY_STATE::AWAY)	// 마우스 우클릭
+		{
+			focusedObject->onMouseUpRight();
 			focusedObject = nullptr;
 		}
 	}

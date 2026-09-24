@@ -9,6 +9,10 @@ public:
 	~Rect();
 
 	void update() override;
+
+	void onMouseDownLeft() override;
+	void onMouseUpLeft() override;
+
 	void render() const override;
 
 	void onCollision(Collider*) override;

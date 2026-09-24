@@ -15,23 +15,24 @@ void Rect::update()
 {
 	Vector2 mousePos{ KeyManager::getInstance().getMousePos() };
 
+	if (KeyManager::getInstance().getKeyState(KEY::MOUSE_L) == KEY_STATE::HOLD && isHeld)
+		setPos(mousePos + dragOffset);
+}
+
+void Rect::onMouseDownLeft()
+{
+	Vector2 mousePos{ KeyManager::getInstance().getMousePos() };
+
 	Vector2 myPos{ getPos() };
 	Vector2 myScale{ getScale() };
 
-	if (KeyManager::getInstance().getKeyState(KEY::MOUSE_L) == KEY_STATE::TAP)
-	{
-		if (mousePos.x > myPos.x - myScale.x && mousePos.x < myPos.x + myScale.x &&
-			mousePos.y > myPos.y - myScale.y && mousePos.y < myPos.y + myScale.y)
-		{
-			isHeld = true;
-			dragOffset = myPos - mousePos;
-		}
-	}
-	else if (KeyManager::getInstance().getKeyState(KEY::MOUSE_L) == KEY_STATE::AWAY)
-		isHeld = false;
+	isHeld = true;
+	dragOffset = myPos - mousePos;
+}
 
-	if (KeyManager::getInstance().getKeyState(KEY::MOUSE_L) == KEY_STATE::HOLD && isHeld)
-		setPos(mousePos + dragOffset);
+void Rect::onMouseUpLeft()
+{
+	isHeld = false;
 }
 
 void Rect::render() const
