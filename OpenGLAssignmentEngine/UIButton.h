@@ -8,6 +8,11 @@ public:
 	~UIButton() = default;
 
 	void update() override;
+
+	void onMouseEnter() override;
+	void onMouseLeave() override;
+	void onMouseDownLeft() override;
+
 	void render() const override;
 
 	// 이 버튼이 어떤 씬으로 넘어갈지 설정하는 함수

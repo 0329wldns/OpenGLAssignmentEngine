@@ -18,7 +18,6 @@ void Scene_Assignment3::update()
 		changeScene(SCENE_TYPE::START);
 	if (KeyManager::getInstance().getKeyState(KEY::A) == KEY_STATE::TAP)
 	{
-		system("cls");
 		if (g_rectCnt < 10)
 		{
 			Vector2 pos{ intDist(gen) % SCREEN_WIDTH, intDist(gen) % SCREEN_HEIGHT };
@@ -33,10 +32,10 @@ void Scene_Assignment3::update()
 			createObject(rect, OBJECT_GROUP::RECT);
 			++g_rectCnt;
 		}
-		else cout << "사각형이 너무 많음!" << endl;
-		cout << "사각형 개수: " << g_rectCnt << endl;
+		else cout << "더 이상 추가할 수 없음" << endl;
 	}
-	if (KeyManager::getInstance().getKeyState(KEY::R) == KEY_STATE::TAP) reset();
+	if (KeyManager::getInstance().getKeyState(KEY::R) == KEY_STATE::TAP) 
+		reset();
 
 	Scene::update();
 }

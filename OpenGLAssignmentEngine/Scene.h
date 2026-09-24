@@ -24,8 +24,10 @@ public:
 
 	void addObject(Object* obj, OBJECT_GROUP group);
 
-	const vector<Object*>& getGroupObject(OBJECT_GROUP _group) const { return object[(int)_group]; }
+	const vector<Object*>& getGroupObject(OBJECT_GROUP _group) const { return object[(int)_group]; };
+	const void processMouseInput();
 
 private:
 	vector<Object*> object[(int)OBJECT_GROUP::END];
+	Object* focusedObject{ nullptr };
 };

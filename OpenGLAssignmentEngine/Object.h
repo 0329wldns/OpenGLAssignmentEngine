@@ -18,6 +18,13 @@ public:
 	virtual void update() = 0;
 	virtual void finalUpdate() final;
 
+	virtual void onMouseEnter() {};
+	virtual void onMouseLeave() {};
+	virtual void onMouseDownLeft() {};
+	virtual void onMouseDownRight() {};
+	virtual void onMouseUpLeft() {};
+	virtual void onMouseUpRight() {};
+
 	virtual void render() const = 0;
 	void componantRender() const;
 
