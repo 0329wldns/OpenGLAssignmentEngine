@@ -34,12 +34,12 @@ public:
 
 	void setPos(Vector2 _pos) { pos = _pos; }
 	void setPos(int _posX, int _posY) { pos.x = (double)_posX; pos.y = (double)_posY; }
-	void setPos(float _posX, float _posY) { pos.x = (double)_posX; pos.y = (double)_posY; }
+	void setPos(double _posX, double _posY) { pos.x = (double)_posX; pos.y = (double)_posY; }
 	void setScale(Vector2 _scale) { scale = _scale; }
 	void setScale(int _scaleX, int _scaleY) { scale.x = (float)_scaleX; scale.y = (float)_scaleY; }
-	void setScale(float _scaleX, float _scaleY) { scale.x = _scaleX; scale.y = _scaleY; }
+	void setScale(double _scaleX, double _scaleY) { scale.x = _scaleX; scale.y = _scaleY; }
 	void setOffset(Vector2 _offset) { offset = _offset; }
-	void setOffset(float _offsetX, float _offsetY) { offset.x = _offsetX; offset.y = _offsetY; }
+	void setOffset(double _offsetX, double _offsetY) { offset.x = _offsetX; offset.y = _offsetY; }
 
 	Vector2 getPos() const { return pos; }
 	Vector2 getScale() const { return scale; }

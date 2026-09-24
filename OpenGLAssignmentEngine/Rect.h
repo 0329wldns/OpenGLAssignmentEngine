@@ -26,4 +26,6 @@ private:
 
 	bool isHeld;
 	Vector2 dragOffset{};
+
+	bool isUnioned;
 };

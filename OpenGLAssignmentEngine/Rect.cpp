@@ -5,7 +5,7 @@
 #include "SceneManager.h"
 
 Rect::Rect()
-	: isHeld(false)
+	: isHeld(false), isUnioned(false)
 {
 	setColor(realDist(gen), realDist(gen), realDist(gen));
 	createCollider();
@@ -80,15 +80,33 @@ void Rect::render() const
 
 void Rect::onCollision(Collider* other)
 {
+	if (isHeld || dynamic_cast<Rect*>(other->getObj())->isHeld
+		|| isUnioned || dynamic_cast<Rect*>(other->getObj())->isUnioned)
+		return;
+
 	Vector2 myPos = getPos();
 	Vector2 myScale = getScale();
 
 	Vector2 otherPos = other->getPos();
 	Vector2 otherScale = other->getScale();
 
-	Rect* rect = new Rect;
-	if (myPos.x > otherPos.x)
-	{
+	Vector2 minA{ myPos.x - myScale.x, myPos.y - myScale.y };
+    Vector2 maxA{ myPos.x + myScale.x, myPos.y + myScale.y };
 
-	}
+    Vector2 minB{ otherPos.x - otherScale.x, otherPos.y - otherScale.y };
+    Vector2 maxB{ otherPos.x + otherScale.x, otherPos.y + otherScale.y };
+
+    Vector2 minUnion{ (std::min)(minA.x, minB.x), (std::min)(minA.y, minB.y) };
+    Vector2 maxUnion{ (std::max)(maxA.x, maxB.x), (std::max)(maxA.y, maxB.y) };
+
+    Rect* rect = new Rect;
+	rect->setPos(Vector2{ (minUnion.x + maxUnion.x) * 0.5f, (minUnion.y + maxUnion.y) * 0.5f });
+	rect->setScale(Vector2{ (maxUnion.x - minUnion.x) * 0.5f, (maxUnion.y - minUnion.y) * 0.5f });
+	rect->getCollider()->setPos(rect->getPos());
+	rect->getCollider()->setScale(rect->getScale());
+	createObject(rect, OBJECT_GROUP::RECT);
+
+	isUnioned = true;
+	deleteObject(this);
+	deleteObject(other->getObj());
 }

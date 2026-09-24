@@ -5,6 +5,7 @@
 #include <map>
 #include <random>
 #include <windows.h>
+#include <cmath>
 
 // OpenGL 관련 라이브러리 (GLEW가 GLFW보다 먼저 include 되어야 함)
 #include <GL/glew.h>
@@ -12,13 +13,13 @@
 
 using namespace std;
 
-inline random_device rd{};
-inline mt19937 gen(rd());
-inline uniform_int_distribution<int> intDist(1, 10000);
-inline uniform_real_distribution<float> realDist(0.0f, 1.0f);
+static random_device rd{};
+static mt19937 gen(rd());
+static uniform_int_distribution<int> intDist(1, 10000);
+static uniform_real_distribution<float> realDist(0.0f, 1.0f);
 
-inline const int SCREEN_WIDTH = 1600;
-inline const int SCREEN_HEIGHT = 1200;
+static const int SCREEN_WIDTH = 1600;
+static const int SCREEN_HEIGHT = 1200;
 
 enum class SCENE_TYPE
 {
