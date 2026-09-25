@@ -15,19 +15,22 @@ void Scene_Start::update()
 
 void Scene_Start::enter()
 {
-	int buttonPresetX{ SCREEN_WIDTH / 2 };
-	int buttonPresetY{ SCREEN_HEIGHT / 2};
-
 	// === 1번 과제 시작 버튼 만들기 ===
-	UIButton* btn1 = new UIButton();
-	btn1->setPos(buttonPresetX, buttonPresetY);
-	btn1->setScale(200, 80);  // 가로 200, 세로 80 크기의 네모
-	btn1->setColor(1.0f, 0.5f, 0.0f); // 주황색
+	UIButton* btn3 = new UIButton();
+	btn3->setPos(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100);
+	btn3->setScale(150, 80);
+	btn3->setColor(1.0f, 0.5f, 0.0f);
+	btn3->setTargetScene(SCENE_TYPE::ASSIGNMENT3);
 
-	btn1->setTargetScene(SCENE_TYPE::ASSIGNMENT3);
+	UIButton* btn4 = new UIButton();
+	btn4->setPos(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + 100);
+	btn4->setScale(150, 80);
+	btn4->setColor(1.0f, 0.0f, 0.0f);
+	btn4->setTargetScene(SCENE_TYPE::ASSIGNMENT4);
 
 	// 씬의 UI 그룹에 버튼 객체 추가
-	createObject(btn1, OBJECT_GROUP::UIBUTTON);
+	createObject(btn3, OBJECT_GROUP::UIBUTTON);
+	createObject(btn4, OBJECT_GROUP::UIBUTTON);
 
 	cout << "================================\n";
 	cout << "주황 버튼: 3번 실습 과제\n";

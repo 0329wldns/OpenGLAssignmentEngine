@@ -2,11 +2,11 @@
 #include "pch.h"
 #include "Object.h"
 
-class Rect : public Object
+class Rect3 : public Object
 {
 public:
-	Rect();
-	~Rect();
+	Rect3();
+	~Rect3();
 
 	void update() override;
 

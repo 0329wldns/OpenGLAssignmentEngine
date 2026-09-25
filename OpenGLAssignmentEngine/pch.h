@@ -34,7 +34,10 @@ enum class OBJECT_GROUP
 {
 	DEFAULT,
 	UIBUTTON,
-	RECT,
+	RECT3,
+	RECT4,
+	RECT5,
+	RECT6,
 
 	END
 };

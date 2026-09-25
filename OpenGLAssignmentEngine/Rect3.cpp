@@ -1,21 +1,21 @@
 #include "pch.h"
-#include "Rect.h"
+#include "Rect3.h"
 #include "KeyManager.h"
 #include "EventFunc.h"
 #include "SceneManager.h"
 
-Rect::Rect()
+Rect3::Rect3()
 	: isHeld(false), isUnioned(false)
 {
 	setColor(realDist(gen), realDist(gen), realDist(gen));
 	createCollider();
 }
 
-Rect::~Rect()
+Rect3::~Rect3()
 {
 }
 
-void Rect::update()
+void Rect3::update()
 {
 	Vector2 mousePos{ KeyManager::getInstance().getMousePos() };
 
@@ -23,7 +23,7 @@ void Rect::update()
 		setPos(mousePos + dragOffset);
 }
 
-void Rect::onMouseDownLeft()
+void Rect3::onMouseDownLeft()
 {
 	Vector2 mousePos{ KeyManager::getInstance().getMousePos() };
 
@@ -34,21 +34,21 @@ void Rect::onMouseDownLeft()
 	dragOffset = myPos - mousePos;
 }
 
-void Rect::onMouseUpLeft()
+void Rect3::onMouseUpLeft()
 {
 	isHeld = false;
 }
 
-void Rect::onMouseDownRight()
+void Rect3::onMouseDownRight()
 {
-	if (SceneManager::getInstance().getCurScene()->getGroupObject(OBJECT_GROUP::RECT).size() >= 20)
+	if (SceneManager::getInstance().getCurScene()->getGroupObject(OBJECT_GROUP::RECT3).size() >= 20)
 		return;
 
 	Vector2 myPos{ getPos() };
 	Vector2 myScale{ getScale() };
 
-	Rect* rect1 = new Rect;
-	Rect* rect2 = new Rect;
+	Rect3* rect1 = new Rect3;
+	Rect3* rect2 = new Rect3;
 
 	rect1->setPos(Vector2(myPos.x - myScale.x / 2, myPos.y));
 	rect1->setScale(Vector2(myScale.x / 2, myScale.y));
@@ -60,13 +60,13 @@ void Rect::onMouseDownRight()
 	rect2->getCollider()->setPos(rect2->getPos());
 	rect2->getCollider()->setScale(rect2->getScale());
 
-	createObject(rect1, OBJECT_GROUP::RECT);
-	createObject(rect2, OBJECT_GROUP::RECT);
+	createObject(rect1, OBJECT_GROUP::RECT3);
+	createObject(rect2, OBJECT_GROUP::RECT3);
 	
 	deleteObject(this);
 }
 
-void Rect::render() const
+void Rect3::render() const
 {
 	glColor3f(color.r, color.g, color.b);
 
@@ -78,10 +78,10 @@ void Rect::render() const
 	componantRender();
 }
 
-void Rect::onCollision(Collider* other)
+void Rect3::onCollision(Collider* other)
 {
-	if (isHeld || dynamic_cast<Rect*>(other->getObj())->isHeld
-		|| isUnioned || dynamic_cast<Rect*>(other->getObj())->isUnioned)
+	if (isHeld || dynamic_cast<Rect3*>(other->getObj())->isHeld
+		|| isUnioned || dynamic_cast<Rect3*>(other->getObj())->isUnioned)
 		return;
 
 	Vector2 myPos = getPos();
@@ -99,12 +99,12 @@ void Rect::onCollision(Collider* other)
     Vector2 minUnion{ (std::min)(minA.x, minB.x), (std::min)(minA.y, minB.y) };
     Vector2 maxUnion{ (std::max)(maxA.x, maxB.x), (std::max)(maxA.y, maxB.y) };
 
-    Rect* rect = new Rect;
+	Rect3* rect = new Rect3;
 	rect->setPos(Vector2{ (minUnion.x + maxUnion.x) * 0.5f, (minUnion.y + maxUnion.y) * 0.5f });
 	rect->setScale(Vector2{ (maxUnion.x - minUnion.x) * 0.5f, (maxUnion.y - minUnion.y) * 0.5f });
 	rect->getCollider()->setPos(rect->getPos());
 	rect->getCollider()->setScale(rect->getScale());
-	createObject(rect, OBJECT_GROUP::RECT);
+	createObject(rect, OBJECT_GROUP::RECT3);
 
 	isUnioned = true;
 	deleteObject(this);

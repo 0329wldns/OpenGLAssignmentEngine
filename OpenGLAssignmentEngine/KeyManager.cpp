@@ -24,6 +24,9 @@ void KeyManager::update()
 	GLFWwindow* window{ Core::getInstance().getWindow() };
 	if (!window) return;
 
+	// 마우스 좌표 업데이트
+	glfwGetCursorPos(window, &curMousePos.x, &curMousePos.y);
+
 	for (int i{}; i < (int)KEY::LAST; ++i)
 	{
 		bool isPressed{};
@@ -31,7 +34,9 @@ void KeyManager::update()
 		// 마우스와 키보드는 GLFW 검사 함수가 서로 다름
 		if (arrVK[i] == GLFW_MOUSE_BUTTON_LEFT || arrVK[i] == GLFW_MOUSE_BUTTON_RIGHT)
 		{
-			isPressed = (glfwGetMouseButton(window, arrVK[i]) == GLFW_PRESS);
+			if (curMousePos.x > 0 && curMousePos.x < SCREEN_WIDTH
+				&& curMousePos.y > 0 && curMousePos.y < SCREEN_HEIGHT)
+				isPressed = (glfwGetMouseButton(window, arrVK[i]) == GLFW_PRESS);
 		}
 		else
 		{
@@ -58,7 +63,4 @@ void KeyManager::update()
 			keyInfo[i].prevPush = false;
 		}
 	}
-
-	// 마우스 좌표 업데이트[cite: 13]
-	glfwGetCursorPos(window, &curMousePos.x, &curMousePos.y);
 }

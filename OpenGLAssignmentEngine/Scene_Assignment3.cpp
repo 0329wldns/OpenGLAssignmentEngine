@@ -2,7 +2,7 @@
 #include "Scene_Assignment3.h"
 #include "KeyManager.h"
 #include "EventFunc.h"
-#include "Rect.h"
+#include "Rect3.h"
 #include "CollisionManager.h"
 
 void Scene_Assignment3::update()
@@ -13,19 +13,19 @@ void Scene_Assignment3::update()
 		changeScene(SCENE_TYPE::START);
 	if (KeyManager::getInstance().getKeyState(KEY::A) == KEY_STATE::TAP)
 	{
-		if (Scene::getGroupObject(OBJECT_GROUP::RECT).size() < 10)
+		if (Scene::getGroupObject(OBJECT_GROUP::RECT3).size() < 10)
 		{
 			Vector2 pos{ intDist(gen) % SCREEN_WIDTH, intDist(gen) % SCREEN_HEIGHT };
 			Vector2 scale{ 10 + intDist(gen) % g_sizeLimit, 10 + intDist(gen) % g_sizeLimit };
 			Color col{ realDist(gen), realDist(gen), realDist(gen) };
 
-			Rect* rect = new Rect();
+			Rect3* rect = new Rect3();
 			rect->setPos(pos);
 			rect->setScale(scale);
 			rect->getCollider()->setPos(rect->getPos());
 			rect->getCollider()->setScale(rect->getScale());
 
-			createObject(rect, OBJECT_GROUP::RECT);
+			createObject(rect, OBJECT_GROUP::RECT3);
 		}
 		else cout << "더 이상 추가할 수 없음" << endl;
 	}
@@ -39,7 +39,7 @@ void Scene_Assignment3::enter()
 {
 	cout << "과제3" << endl;
 
-	CollisionManager::getInstance().checkCollisionGroup(OBJECT_GROUP::RECT, OBJECT_GROUP::RECT);
+	CollisionManager::getInstance().checkCollisionGroup(OBJECT_GROUP::RECT3, OBJECT_GROUP::RECT3);
 }
 
 void Scene_Assignment3::exit()

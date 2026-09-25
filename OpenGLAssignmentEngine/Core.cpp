@@ -4,6 +4,7 @@
 #include "SceneManager.h"
 #include "EventManager.h"
 #include "CollisionManager.h"
+#include "TimeManager.h"
 
 Core::~Core()
 {
@@ -59,6 +60,7 @@ int Core::init()
 	glLoadIdentity();
 
 	// 각 매니저 초기화
+	TimeManager::getInstance().init();
 	KeyManager::getInstance().init();
 	SceneManager::getInstance().init();
 
@@ -73,6 +75,7 @@ void Core::progress()
 	// 입력 이벤트 폴링
 	glfwPollEvents();
 
+	TimeManager::getInstance().update();
 	KeyManager::getInstance().update();
 	SceneManager::getInstance().update();
 	

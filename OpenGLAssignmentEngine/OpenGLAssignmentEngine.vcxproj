@@ -143,10 +143,11 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="Rect3.cpp" />
     <ClCompile Include="Scene_Assignment3.cpp" />
     <ClCompile Include="Scene_Assignment4.cpp" />
     <ClCompile Include="Scene_Assignment4.h" />
+    <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="UIButton.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -161,8 +162,9 @@
     <ClCompile Include="Scene_Start.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Rect.h" />
+    <ClInclude Include="Rect3.h" />
     <ClInclude Include="Scene_Assignment3.h" />
+    <ClInclude Include="TimeManager.h" />
     <ClInclude Include="UIButton.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionManager.h" />
