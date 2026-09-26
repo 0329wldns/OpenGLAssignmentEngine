@@ -41,32 +41,41 @@ void Scene_Assignment4::processKeyInput(KEY _key)
 	case KEY::NUM1:
 		if (KeyManager::getInstance().getKeyState(KEY::NUM1) == KEY_STATE::TAP)
 		{
+			if (Rect4::getState().movement != MOVEMENT::DIAGNAL)
+				Rect4::setMovement(MOVEMENT::DIAGNAL);
+			else Rect4::setMovement(MOVEMENT::NONE);
 		}
 		break;
 	case KEY::NUM2:
 		if (KeyManager::getInstance().getKeyState(KEY::NUM2) == KEY_STATE::TAP)
 		{
+			if (Rect4::getState().movement != MOVEMENT::ZIGZAG)
+				Rect4::setMovement(MOVEMENT::ZIGZAG);
+			else Rect4::setMovement(MOVEMENT::NONE);
 		}
 		break;
 	case KEY::NUM3:
 		if (KeyManager::getInstance().getKeyState(KEY::NUM3) == KEY_STATE::TAP)
 		{
+			if (Rect4::getState().movement != MOVEMENT::CLOCKWISE)
+				Rect4::setMovement(MOVEMENT::CLOCKWISE);
+			else Rect4::setMovement(MOVEMENT::NONE);
 		}
 		break;
 	case KEY::NUM4:
 		if (KeyManager::getInstance().getKeyState(KEY::NUM4) == KEY_STATE::TAP)
 		{
-			if (rects.size()) dynamic_cast<Rect4*>(rects[0])->toggleChangeScale();
+			Rect4::toggleChangeScale();
 			for (size_t i = 0; i < rects.size(); ++i)
 			{
-				rects[i]->setScale(dynamic_cast<Rect4*>(rects[i])->getOrgScale());
+				rects[i]->setScale(static_cast<Rect4*>(rects[i])->getOrgScale());
 			}
 		}
 		break;
 	case KEY::NUM5:
 		if (KeyManager::getInstance().getKeyState(KEY::NUM5) == KEY_STATE::TAP)
 		{
-			if (rects.size()) dynamic_cast<Rect4*>(rects[0])->toggleChangeColor();
+			Rect4::toggleChangeColor();
 		}
 		break;
 	case KEY::M:
@@ -74,7 +83,7 @@ void Scene_Assignment4::processKeyInput(KEY _key)
 		{
 			for (size_t i = 0; i < rects.size(); ++i)
 			{
-				rects[i]->setPos(dynamic_cast<Rect4*>(rects[i])->getOrgPos());
+				rects[i]->setPos(static_cast<Rect4*>(rects[i])->getOrgPos());
 			}
 		}
 		break;

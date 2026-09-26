@@ -148,6 +148,7 @@
     <ClCompile Include="Scene_Assignment3.cpp" />
     <ClCompile Include="Scene_Assignment4.cpp" />
     <ClCompile Include="Scene_Assignment4.h" />
+    <ClCompile Include="Scene_Assignment5.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="UIButton.cpp" />
     <ClCompile Include="Collider.cpp" />
@@ -165,6 +166,7 @@
   <ItemGroup>
     <ClInclude Include="Rect3.h" />
     <ClInclude Include="Scene_Assignment3.h" />
+    <ClInclude Include="Scene_Assignment5.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="UIButton.h" />
     <ClInclude Include="Collider.h" />
