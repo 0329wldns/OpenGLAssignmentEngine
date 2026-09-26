@@ -5,7 +5,8 @@
 #include "SceneManager.h"
 
 Rect3::Rect3()
-	: isHeld(false), isUnioned(false)
+	: isHeld(false)
+	, isUnioned(false)
 {
 	setColor(realDist(gen), realDist(gen), realDist(gen));
 	createCollider();

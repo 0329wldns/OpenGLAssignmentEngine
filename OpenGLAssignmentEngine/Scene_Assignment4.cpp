@@ -57,6 +57,10 @@ void Scene_Assignment4::processKeyInput(KEY _key)
 		if (KeyManager::getInstance().getKeyState(KEY::NUM4) == KEY_STATE::TAP)
 		{
 			if (rects.size()) dynamic_cast<Rect4*>(rects[0])->toggleChangeScale();
+			for (size_t i = 0; i < rects.size(); ++i)
+			{
+				rects[i]->setScale(dynamic_cast<Rect4*>(rects[i])->getOrgScale());
+			}
 		}
 		break;
 	case KEY::NUM5:
@@ -97,6 +101,7 @@ void Scene_Assignment4::processKeyInput(KEY _key)
 				rect->setPos(mousePos);
 				rect->setScale(Vector2(50, 50));
 				rect->setOrgPos(rect->getPos());
+				rect->setOrgScale(rect->getScale());
 
 				createObject(rect, OBJECT_GROUP::RECT4);
 			}

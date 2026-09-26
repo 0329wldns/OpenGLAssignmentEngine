@@ -3,7 +3,11 @@
 #include "TimeManager.h"
 
 Rect4::Rect4()
-	: orgPos(), changeColorCD()
+	: orgPos()
+	, orgScale()
+	, changeColorCD()
+	, changeScaleCD()
+	, flag(true)
 {
 	setColor(realDist(gen), realDist(gen), realDist(gen));
 }
@@ -23,6 +27,16 @@ void Rect4::update()
 			setColor(realDist(gen), realDist(gen), realDist(gen));
 			changeColorCD -= 2.0f;
 		}
+	}
+	if (state.changeScale)
+	{
+		if (flag) setScale(myScale.x + orgScale.x * 1.5f * dt, myScale.y + orgScale.y * 1.5f * dt);
+		else setScale(myScale.x - orgScale.x * 1.5f * dt, myScale.y - orgScale.y * 1.5f * dt);
+
+		if (myScale.x > orgScale.x * 1.5f && myScale.y > orgScale.y * 1.5f)
+			flag = false;
+		else if(myScale.x < orgScale.x * 0.5f && myScale.y < orgScale.y * 0.5f)
+			flag = true;
 	}
 }
 
