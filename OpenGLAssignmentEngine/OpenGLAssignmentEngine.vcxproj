@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Rect3.cpp" />
+    <ClCompile Include="Rect4.cpp" />
     <ClCompile Include="Scene_Assignment3.cpp" />
     <ClCompile Include="Scene_Assignment4.cpp" />
     <ClCompile Include="Scene_Assignment4.h" />
@@ -179,6 +180,9 @@
     <ClInclude Include="Scene_Start.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Struct.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rect4.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

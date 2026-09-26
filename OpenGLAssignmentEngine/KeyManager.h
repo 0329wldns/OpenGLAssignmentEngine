@@ -5,7 +5,14 @@
 
 enum class KEY
 {
+	NUM1,
+	NUM2,
+	NUM3,
+	NUM4,
+	NUM5,
 	A,
+	M,
+	Q,
 	R,
 	MOUSE_L, MOUSE_R,
 	ESC,

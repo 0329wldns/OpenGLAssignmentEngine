@@ -34,12 +34,23 @@ void UIButton::onMouseDownLeft()
 
 void UIButton::render() const
 {
-	// 마우스가 버튼 위에 있으면 색을 살짝 밝게(노란색 등) 바꿔서 선택된 느낌 주기
-	if (isHover) glColor3f(1.0f, 1.0f, 0.0f); // 노란색
-	else glColor3f(color.r, color.g, color.b);   // 원래 설정한 색상
+	
+	glColor3f(color.r, color.g, color.b);   // 원래 설정한 색상
 
 	Vector2 myPos = getPos();
 	Vector2 myScale = getScale();
 
 	glRectd(myPos.x - myScale.x, myPos.y - myScale.y, myPos.x + myScale.x, myPos.y + myScale.y);
+
+	if (isHover)
+	{
+		glColor3f(1.0f - color.r, 1.0f - color.g, 1.0f - color.b); // 노란색
+
+		glBegin(GL_LINE_LOOP);
+		glVertex2f(GLfloat(myPos.x - myScale.x), GLfloat(myPos.y - myScale.y)); // 좌하단
+		glVertex2f(GLfloat(myPos.x + myScale.x), GLfloat(myPos.y - myScale.y)); // 우하단
+		glVertex2f(GLfloat(myPos.x + myScale.x), GLfloat(myPos.y + myScale.y)); // 우상단
+		glVertex2f(GLfloat(myPos.x - myScale.x), GLfloat(myPos.y + myScale.y)); // 좌상단
+		glEnd();
+	}
 }

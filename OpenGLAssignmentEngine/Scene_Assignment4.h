@@ -1,6 +1,5 @@
 #pragma once
 #include "pch.h"
-
 #include "Scene.h"
 
 class Scene_Assignment4 : public Scene

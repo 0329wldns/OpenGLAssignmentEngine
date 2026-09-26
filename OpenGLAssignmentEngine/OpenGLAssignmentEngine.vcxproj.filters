@@ -90,6 +90,9 @@
     <ClCompile Include="TimeManager.cpp">
       <Filter>소스 파일\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="Rect4.cpp">
+      <Filter>소스 파일\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -143,5 +146,10 @@
     <ClInclude Include="TimeManager.h">
       <Filter>헤더 파일\Managers</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rect4.h">
+      <Filter>헤더 파일\Objects</Filter>
+    </None>
   </ItemGroup>
 </Project>
