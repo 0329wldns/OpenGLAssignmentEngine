@@ -53,12 +53,7 @@ void KeyManager::update()
 		if (isPressed)
 		{
 			if (keyInfo[i].prevPush) keyInfo[i].keyState = KEY_STATE::HOLD;
-			else
-			{
-				keyInfo[i].keyState = KEY_STATE::TAP;
-
-				cout << "Key Pressed: " << i << endl;
-			}
+			else keyInfo[i].keyState = KEY_STATE::TAP;
 
 			keyInfo[i].prevPush = true;
 		}

@@ -143,8 +143,10 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EraserRect.cpp" />
     <ClCompile Include="Rect3.cpp" />
     <ClCompile Include="Rect4.cpp" />
+    <ClCompile Include="Rect5.cpp" />
     <ClCompile Include="Scene_Assignment3.cpp" />
     <ClCompile Include="Scene_Assignment4.cpp" />
     <ClCompile Include="Scene_Assignment4.h" />
@@ -164,7 +166,9 @@
     <ClCompile Include="Scene_Start.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EraserRect.h" />
     <ClInclude Include="Rect3.h" />
+    <ClInclude Include="Rect5.h" />
     <ClInclude Include="Scene_Assignment3.h" />
     <ClInclude Include="Scene_Assignment5.h" />
     <ClInclude Include="TimeManager.h" />

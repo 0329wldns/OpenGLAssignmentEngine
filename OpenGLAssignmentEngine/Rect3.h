@@ -6,7 +6,7 @@ class Rect3 : public Object
 {
 public:
 	Rect3();
-	~Rect3();
+	~Rect3() = default;
 
 	void update() override;
 

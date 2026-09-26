@@ -37,7 +37,7 @@ void Scene_Assignment3::update()
 
 void Scene_Assignment3::enter()
 {
-	cout << "과제3" << endl;
+	cout << "실습3" << endl;
 	cout << "a: 랜덤한 위치에 다른 색상의 사각형을 만든다." << endl;
 	cout << "마우스 좌클릭으로 사각형 드래그" << endl;
 	cout << "두 사각형이 겹치면 합쳐진다" << endl;

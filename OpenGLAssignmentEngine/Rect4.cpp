@@ -80,10 +80,10 @@ void Rect4::update()
 	if (state.changeColor)
 	{
 		changeColorCD += dt;
-		if (changeColorCD >= 2.0f)
+		if (changeColorCD >= 0.5f)
 		{
 			setColor(realDist(gen), realDist(gen), realDist(gen));
-			changeColorCD -= 2.0f;
+			changeColorCD -= 0.5f;
 		}
 	}
 	if (state.changeScale)

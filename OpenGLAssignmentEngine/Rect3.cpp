@@ -12,10 +12,6 @@ Rect3::Rect3()
 	createCollider();
 }
 
-Rect3::~Rect3()
-{
-}
-
 void Rect3::update()
 {
 	Vector2 mousePos{ KeyManager::getInstance().getMousePos() };
