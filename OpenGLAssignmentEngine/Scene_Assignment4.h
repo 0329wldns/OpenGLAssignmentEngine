@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Scene.h"
+#include "KeyManager.h"
 
 class Scene_Assignment4 : public Scene
 {
@@ -15,6 +16,8 @@ public:
 
 	void enter() override;
 	void exit() override;
+
+	void processKeyInput(KEY);
 
 private:
 
